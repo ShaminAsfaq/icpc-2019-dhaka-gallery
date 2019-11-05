@@ -1,7 +1,8 @@
 import React from 'react';
 
 const ImageCard = (props) => {
-    const src = props.src;
+
+    const src = props.src.replace(/#/g, '');
     var name = props.name;
     var role = props.role;
 

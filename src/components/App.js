@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
-import Team from '../components/Team';
 import axios from 'axios';
 import ImageList from './ImageList';
 
@@ -14,7 +13,7 @@ class App extends React.Component {
     }
 
     getData = async () => {
-        var response = await axios.get('http://localhost:3001')
+        var response = await axios.get('http://118.179.95.206:3001')
         this.setState({list: response.data})
     }
 

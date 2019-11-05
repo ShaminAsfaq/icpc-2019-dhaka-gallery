@@ -29,21 +29,21 @@ const Team = (props) => {
                     <div className="column">
                         <ImageCard 
                             name = {c1}
-                            role = 'Contestant 1'
+                            role = 'Contestant'
                             src = {`${path}/[${institute}][${team}][C1][${c1}]`}
                         />
                     </div>
                     <div className="column">
                         <ImageCard 
                             name = {c2}
-                            role = 'Contestant 2'
+                            role = 'Contestant'
                             src = {`${path}/[${institute}][${team}][C2][${c2}]`}
                         />
                     </div>
                     <div className="column">
                         <ImageCard 
                             name = {c3}
-                            role = 'Contestant 3'
+                            role = 'Contestant'
                             src = {`${path}/[${institute}][${team}][C3][${c3}]`}
                         />
                     </div>

@@ -7,7 +7,7 @@ var fs = require('fs');
 var app = express();
 
 
-// Allow all in cors
+// Allow all in CORS
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -55,7 +55,8 @@ app.get('/url', (req, res) => {
     res.send('Hey!')
 });
 
-app.listen(3001, () => {
+//  Opening server for the world (0.0.0.0)
+app.listen(3001, '0.0.0.0', () => {
  console.log("Server running on port 3001");
 });
 
