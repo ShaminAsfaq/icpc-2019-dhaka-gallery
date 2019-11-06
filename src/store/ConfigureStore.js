@@ -10,7 +10,13 @@ const teamListReducer = (state = {}, action) => {
             }
         case 'FILTER_LIST': {
             let filteredList = action.list.mainList.filter((team) => {
-                var result = team.institute.toLowerCase().includes(action.key.toLowerCase());
+                var result =    team.institute.toLowerCase().includes(action.key.toLowerCase())     ||
+                                team.team_name.toLowerCase().includes(action.key.toLowerCase())     ||
+                                team.coach_name.toLowerCase().includes(action.key.toLowerCase())    ||
+                                team.c1_name.toLowerCase().includes(action.key.toLowerCase())       ||
+                                team.c2_name.toLowerCase().includes(action.key.toLowerCase())       ||
+                                team.c3_name.toLowerCase().includes(action.key.toLowerCase())       
+                            ;
                 return result;
             }).sort((a,b) => {
                 return a.team_name > b.team_name ? 1 : -1
