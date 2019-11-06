@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
             <div className="ui segment something">
                 <form className="ui form">
                     <div className="field">
-                        <label>Team Search</label>
+                        <label>Search by anything!</label>
                         <input type="text" autoFocus={true} value={this.props.searchKey.key || ''} onChange={(e) => {
                             this.props.dispatch(OnSearch(e.target.value));
 
