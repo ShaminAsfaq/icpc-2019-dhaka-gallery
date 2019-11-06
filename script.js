@@ -1,5 +1,4 @@
 var express = require('express');
-var cors = require('cors');
 
 var csv = require('csv-parser');
 var fs = require('fs');

@@ -1,36 +1,33 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
-import axios from 'axios';
 import ImageList from './ImageList';
+import { connect } from 'react-redux'
+
 
 class App extends React.Component {
-    state = {
-        list: []
-    }
-
-    componentDidMount() {
-        this.getData();
-    }
-
-    getData = async () => {
-        var response = await axios.get('http://118.179.95.206:3001')
-        this.setState({list: response.data})
-    }
 
     render() {
-        // console.log(this.state)
         return (
             <div className="ui container" style={{marginTop: '10px'}}>
             <SearchBar />
-
-            <ImageList list={ this.state.list }/>
-        </div>
+                {
+                    this.props.teamList.list &&
+                    <ImageList list = {this.props.teamList.list}/>
+                }
+            </div>
         );
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        teamList: state.teamList
+    }
+}
+
+const ConnectedApp = connect(mapStateToProps)(App);
 
 export {
-    App as default
+    ConnectedApp as default
 }
 

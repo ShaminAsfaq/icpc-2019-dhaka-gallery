@@ -13,6 +13,7 @@ const ImageCard = (props) => {
             </div>
             <div className="content">
                 <a className="header">{name}</a>
+
                 <div className="meta">
                 <span className="date">{role}</span>
                 </div>
@@ -20,7 +21,6 @@ const ImageCard = (props) => {
         </div>
     );
 }
-
 
 export {
     ImageCard as default
