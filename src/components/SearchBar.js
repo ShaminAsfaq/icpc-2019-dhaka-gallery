@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
                         }}
                     >
                             <input 
-                                placeholder='Search by Team Name, Institute Name or Name of Yourself!'
+                                placeholder='Search by Team Name, Institute Name or Member Name!'
                                 style={{ marginTop: '0.5%' }}
                                 type="text"
                                 autoFocus={true}
