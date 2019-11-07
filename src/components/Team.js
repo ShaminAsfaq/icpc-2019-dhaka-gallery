@@ -2,7 +2,8 @@ import React from 'react';
 import ImageCard from '../components/ImageCard';
 
 const Team = (props) => {
-    var path = '/pic-generic';
+    var path = '../../../pic-generic';
+    // path = '/pic-generic'
 
     var coach = props.team.coach_name;
     var c1 = props.team.c1_name;
