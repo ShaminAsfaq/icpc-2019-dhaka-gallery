@@ -66,4 +66,3 @@ const ConnectedSearchBar = connect(mapStateToProps)(SearchBar);
 export {
     ConnectedSearchBar as default
 }
-
