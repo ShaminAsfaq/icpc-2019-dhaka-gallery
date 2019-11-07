@@ -26,6 +26,7 @@ yarn-error.log*
 # Photos
 /public/pic-generic
 .idea
+build
 
 # Packages #
 ############
