@@ -5,18 +5,22 @@ import { OnSearch, FilteredList } from '../actions/StoreActions';
 class SearchBar extends React.Component {
     render() {
         return (
-            
-            <div className="ui segment something">
-                <form className="ui form">
-                    <div className="field">
-                        <label>Search by anything!</label>
-                        <input type="text" autoFocus={true} value={this.props.searchKey.key || ''} onChange={(e) => {
-                            this.props.dispatch(OnSearch(e.target.value));
 
-                            this.props.dispatch(FilteredList(this.props.teamList, e.target.value));
-                        }}/>
-                    </div>
-                </form>
+            <div class="ui top fixed menu">
+                <div style={{width: '50%', margin: '0 auto', textAlign: 'center', marginBottom: '0.5%'}}>
+                    <form className="ui form">
+                            <input 
+                                placeholder='Search by Team Name, Institute Name or Name of Yourself!'
+                                style={{ marginTop: '0.5%' }}
+                                type="text"
+                                autoFocus={true}
+                                value={this.props.searchKey.key || ''}
+                                onChange={(e) => {
+                                    this.props.dispatch(OnSearch(e.target.value));
+                                    this.props.dispatch(FilteredList(this.props.teamList, e.target.value));
+                            }}/>
+                    </form>
+                </div>
             </div>
         );
     }

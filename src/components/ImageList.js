@@ -13,7 +13,7 @@ const ImageList = (props) => {
 	});
 	
 		return (
-			<div className="team-list">{teams}</div>
+			<div className="team-list" style={{marginTop: '80px'}}>{teams}</div>
 		);
 	
 };
