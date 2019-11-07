@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
     render() {
         return (
 
-            <div class="ui top fixed menu">
+            <div className="ui top fixed menu">
                 <div style={{width: '50%', margin: '0 auto', textAlign: 'center', marginBottom: '0.5%'}}>
                     <form className="ui form">
                             <input 
