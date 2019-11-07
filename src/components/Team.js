@@ -2,7 +2,8 @@ import React from 'react';
 import ImageCard from '../components/ImageCard';
 
 const Team = (props) => {
-    var path = '../../../pic-generic';
+
+    var path = process.env.PUBLIC_URL + 'pic-generic';
     // path = '/pic-generic'
 
     var coach = props.team.coach_name;
