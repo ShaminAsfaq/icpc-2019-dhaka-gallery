@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import axios from 'axios';
 
-import { OnSearch, SetList } from './actions/StoreActions';
+import { SetList } from './actions/StoreActions';
 
 import App from './components/App';
 import configureStore from './store/ConfigureStore';
@@ -16,8 +16,8 @@ const foundStore = configureStore();
 // });
 
 var getData = async () => {
-    //var response = await axios.get('http://118.179.95.206:3001')
-     var response = await axios.get('http://172.17.0.69:3001')
+     var response = await axios.get('https://icpc-2019-dhaka-gallery-node.herokuapp.com/')
+    //  var response = await axios.get('http://localhost:3001')
     foundStore.dispatch(SetList(response.data));
 }
 

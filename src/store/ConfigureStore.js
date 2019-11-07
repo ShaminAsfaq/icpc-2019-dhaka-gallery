@@ -15,7 +15,7 @@ const teamListReducer = (state = {}, action) => {
 
             list = list.slice(offset, offset+10)
 
-            if(list.length==0){
+            if(list.length===0){
                 list = action.list
                 pageNumber-=1;
             }
