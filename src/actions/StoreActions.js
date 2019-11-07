@@ -5,6 +5,15 @@ const OnSearch = (text = '') => {
     }
 }
 
+const OnButtonClicked = (list = [], pageNumber = 0, value = 0) => {
+    return {
+        type: 'CLICK',
+        list: list,
+        pageNumber: pageNumber,
+        value: value
+    }
+}
+
 const SetList = (list = []) => {
     return {
         type: 'SET_LIST',
@@ -23,6 +32,7 @@ const FilteredList = (list = [], key = '') => {
 export {
     OnSearch,
     SetList,
-    FilteredList
+    FilteredList,
+    OnButtonClicked
 }
 

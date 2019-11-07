@@ -2,13 +2,41 @@ import { createStore, combineReducers } from 'redux';
 
 const teamListReducer = (state = {}, action) => {
     switch(action.type){
+        case 'CLICK':
+            var value = action.value
+            var list = action.list
+
+            var pageNumber = action.pageNumber + value
+
+            var lastPage = Math.floor(list.length/10)
+            if(pageNumber<0) pageNumber = lastPage
+            if(pageNumber>lastPage) pageNumber = 0
+            var offset = pageNumber * 10
+
+            list = list.slice(offset, offset+10)
+
+            if(list.length==0){
+                list = action.list
+                pageNumber-=1;
+            }
+
+            return {
+                ...state,
+                list,
+                pageNumber
+            }
         case 'SET_LIST':
             return {
                 ...state,
-                list: action.list,
-                mainList: action.list
+                list: action.list.slice(0, 10),
+                mainList: action.list,
+                filteredList: action.list,
+                pageNumber: 0
             }
         case 'FILTER_LIST': {
+            let pageNumber = 0
+
+            let offset = (pageNumber)*10;
             let filteredList = action.list.mainList.filter((team) => {
                 var result =    team.institute.toLowerCase().includes(action.key.toLowerCase())     ||
                                 team.team_name.toLowerCase().includes(action.key.toLowerCase())     ||
@@ -18,19 +46,27 @@ const teamListReducer = (state = {}, action) => {
                                 team.c3_name.toLowerCase().includes(action.key.toLowerCase())       
                             ;
                 return result;
-            }).sort((a,b) => {
-                return a.team_name > b.team_name ? 1 : -1
+            })
+            filteredList = filteredList.sort((a,b) => {
+                return a.institute > b.institute ? 1 : -1
+            });
+
+            let rawFilteredList = filteredList;
+            rawFilteredList = rawFilteredList.sort((a,b) => {
+                return a.institute > b.institute ? 1 : -1
             });
 
             if(!action.key){
-                filteredList = action.list.mainList
+                filteredList = action.list.mainList.slice(0, 10)
+            }else {
+                filteredList = filteredList.slice(offset, offset+10)
             }
-
-            // console.log(filteredList)
 
             return {
                 ...state,
-                list: filteredList
+                list: filteredList,
+                filteredList: rawFilteredList,
+                pageNumber: 0
             }
         }
         default:
@@ -54,7 +90,7 @@ const buildStore = () => {
     const store = createStore(
         combineReducers({
             teamList: teamListReducer,
-            searchKey: searchReducer
+            searchKey: searchReducer,
         })
     );
     return store;

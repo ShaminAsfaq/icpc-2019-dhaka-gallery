@@ -16,8 +16,8 @@ const foundStore = configureStore();
 // });
 
 var getData = async () => {
-    var response = await axios.get('http://118.179.95.206:3001')
-    // var response = await axios.get('http://localhost:3001')
+    //var response = await axios.get('http://118.179.95.206:3001')
+     var response = await axios.get('http://172.17.0.69:3001')
     foundStore.dispatch(SetList(response.data));
 }
 
