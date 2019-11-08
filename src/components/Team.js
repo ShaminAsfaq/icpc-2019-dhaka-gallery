@@ -1,6 +1,7 @@
-import React from 'react';
-import ImageCard from '../components/ImageCard';
+import React, {lazy,Suspense} from 'react';
+import { CardPlaceholder } from './placeholders/CardPlaceholder';
 
+const ImageCard = lazy(() => import('./ImageCard'))
 const Team = (props) => {
 
     var path = process.env.PUBLIC_URL + 'pic-generic';
@@ -22,32 +23,40 @@ const Team = (props) => {
             <div className="content">
                 <div className="ui four column grid">
                     <div className="column">
-                        <ImageCard 
-                            name = {coach}
-                            role = 'Coach'
-                            src = {`${path}/[${institute}][${team}][Coach][${coach}]`}
-                        />
+                        <Suspense fallback={<CardPlaceholder />}>
+                            <ImageCard 
+                                name = {coach}
+                                role = 'Coach'
+                                src = {`${path}/[${institute}][${team}][Coach][${coach}]`}
+                            />
+                        </Suspense>
                     </div>
                     <div className="column">
+                    <Suspense fallback={<CardPlaceholder />}>
                         <ImageCard 
                             name = {c1}
                             role = 'Contestant'
                             src = {`${path}/[${institute}][${team}][C1][${c1}]`}
                         />
+                        </Suspense>
                     </div>
                     <div className="column">
+                    <Suspense fallback={<CardPlaceholder />}>
                         <ImageCard 
                             name = {c2}
                             role = 'Contestant'
                             src = {`${path}/[${institute}][${team}][C2][${c2}]`}
                         />
+                        </Suspense>
                     </div>
                     <div className="column">
+                    <Suspense fallback={<CardPlaceholder />}>
                         <ImageCard 
                             name = {c3}
                             role = 'Contestant'
                             src = {`${path}/[${institute}][${team}][C3][${c3}]`}
                         />
+                        </Suspense>
                     </div>
                 </div>
             </div>

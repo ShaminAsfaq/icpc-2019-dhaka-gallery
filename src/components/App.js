@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import SearchBar from '../components/SearchBar';
-import ImageList from './ImageList';
+// import ImageList from './ImageList';
 import { connect } from 'react-redux';
+import { ImageListPlaceholder } from './placeholders/ImageListPlaceholder';
 
-import { LazyLoadComponent} from 'react-lazy-load-image-component';
+// const LazyLoadComponentWrapper = lazy(() => import('./wrappers/LazyLoadComponentWrapper'));
+const ImageList = lazy(() => import('../components/ImageList'));
 
 class App extends React.Component {
     render() {
@@ -12,9 +14,9 @@ class App extends React.Component {
             <SearchBar />
                 {
                     this.props.teamList.list &&
-                    <LazyLoadComponent>
-                        <ImageList list = {this.props.teamList.list}/>
-                    </LazyLoadComponent>
+                    <Suspense fallback={<ImageListPlaceholder />}>
+                            <ImageList list = {this.props.teamList.list}/>
+                    </Suspense>
                 }
             </div>
         );

@@ -1,9 +1,10 @@
-import React from 'react';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
+import React, {lazy, Suspense} from 'react';
+import { ImagePlaceholder } from './placeholders/ImagePlaceholder';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 
+const LazyLoadImageWrapper = lazy(() => import('./wrappers/LazyLoadImageWrapper'))
 const ImageCard = (props) => {
     const src = props.src.replace(/#/g, '');
     var name = props.name;
@@ -11,11 +12,13 @@ const ImageCard = (props) => {
 
     return (
         <div className="ui card" style={{cursor: 'pointer'}}>
-            <div className="ui image" style={{display:'flex', justifyContent: 'center'}}>
-                <LazyLoadImage
-                    src={src}
-                    effect="blur"
-                />
+            <div className="ui image" style={{ display: 'flex', justifyContent: 'center' }}>
+                <Suspense fallback={<ImagePlaceholder />}>
+                    <LazyLoadImageWrapper 
+                        src={src}
+                        effect="blur"
+                    />
+                </Suspense>
             </div>
             <div className="content">
                 <a className="header">{name}</a>
