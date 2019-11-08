@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import axios from 'axios';
-
 import { SetList } from './actions/StoreActions';
-
 import App from './components/App';
 import configureStore from './store/ConfigureStore';
 import {Provider} from 'react-redux';

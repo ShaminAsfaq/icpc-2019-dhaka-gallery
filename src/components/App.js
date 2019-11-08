@@ -1,8 +1,9 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
 import ImageList from './ImageList';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
+import { LazyLoadComponent} from 'react-lazy-load-image-component';
 
 class App extends React.Component {
     render() {
@@ -11,7 +12,9 @@ class App extends React.Component {
             <SearchBar />
                 {
                     this.props.teamList.list &&
-                    <ImageList list = {this.props.teamList.list}/>
+                    <LazyLoadComponent>
+                        <ImageList list = {this.props.teamList.list}/>
+                    </LazyLoadComponent>
                 }
             </div>
         );

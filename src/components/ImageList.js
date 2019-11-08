@@ -1,14 +1,18 @@
 import React from 'react';
 import Team from '../components/Team';
-
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ImageList = (props) => {
-	// console.log(props)
-		
-	const teams = props.list.map((team) => {
-		// console.log(team.cm_id)
+	const { list } = props;
+	
+	const teams = list.map((team) => {
 		return (
-			<Team key={team.cm_id} team={team}/>
+			<LazyLoadComponent
+				key={team.cm_id}
+			>
+				<Team team={team} />
+			</LazyLoadComponent>
 		);
 	});
 	
@@ -17,6 +21,5 @@ const ImageList = (props) => {
 		);
 	
 };
-
 
 export default ImageList;
