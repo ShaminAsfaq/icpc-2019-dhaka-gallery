@@ -11,7 +11,7 @@ const ImageCard = (props) => {
 
     return (
         <div className="ui card" style={{cursor: 'pointer'}}>
-            <div className="ui image" style={{display:'flex'}}>
+            <div className="ui image" style={{display:'flex', justifyContent: 'center'}}>
                 <LazyLoadImage
                     src={src}
                     effect="blur"
