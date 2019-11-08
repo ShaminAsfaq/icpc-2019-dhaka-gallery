@@ -20,7 +20,7 @@ const ImageCard = (props) => {
                     />
                 </Suspense>
             </div>
-            <div className="content">
+            <div className="content" style={{fontSize: '0.8em'}}>
                 <a className="header">{name}</a>
 
                 <div className="meta">

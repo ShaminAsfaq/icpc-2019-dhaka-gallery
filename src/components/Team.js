@@ -16,7 +16,6 @@ const Team = (props) => {
 
     return (
         <div className="ui top attached segment">
-
             <div style={{marginBottom: '5px'}}>
                 <a className="ui red ribbon label">{`${institute} [${team}]`}</a>
             </div>

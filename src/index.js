@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { lazy,Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { SetList } from './actions/StoreActions';
-import App from './components/App';
 import configureStore from './store/ConfigureStore';
 import {Provider} from 'react-redux';
+import { IndexPlaceholder } from './components/placeholders/IndexPlaceholder';
+
+const App = lazy(() => import('./components/App'));
 
 const foundStore = configureStore();
 
@@ -20,10 +22,11 @@ var getData = async () => {
 
 getData();
 
-
 const jsx = (
     <Provider store = {foundStore}>
-        <App />
+        <Suspense fallback={<IndexPlaceholder />}>
+            <App />
+        </Suspense>
     </Provider>
 );
 
