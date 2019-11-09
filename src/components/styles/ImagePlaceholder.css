@@ -1,3 +1,9 @@
-.ui.image {
+/* .ui.image {
     display: inline !important;
+} */
+
+@media(min-width: 45rem) {
+    .ui.image {
+        display: inline !important;
+    }
 }

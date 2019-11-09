@@ -21,7 +21,7 @@ const ImageCard = (props) => {
                 </Suspense>
             </div>
             <div className="content" style={{fontSize: '0.8em'}}>
-                <a className="header">{name}</a>
+                <a className="header name-header">{name}</a>
 
                 <div className="meta">
                 <span className="date">{role}</span>

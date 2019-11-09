@@ -3,6 +3,7 @@ import SearchBar from '../components/SearchBar';
 import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
 import { ImageListPlaceholder } from './placeholders/ImageListPlaceholder';
+import './styles/App.css';
 
 const ImageList = lazy(() => import('../components/ImageList'));
 
