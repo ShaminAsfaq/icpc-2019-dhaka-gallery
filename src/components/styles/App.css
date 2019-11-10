@@ -1,3 +1,11 @@
+.name-header {
+    pointer-events: none;
+}
+
+.red.ribbon {
+    pointer-events: none;
+}
+
 .ui.card {
     display: inline-block;
     border-radius: 0;

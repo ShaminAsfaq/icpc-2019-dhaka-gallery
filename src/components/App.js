@@ -18,7 +18,7 @@ class App extends React.Component {
         return (
             <div className="ui container" style={{marginTop: '10px'}}>
                 <SearchBar />
-                <div style={{ width: '75%', alignContent: 'center', marginLeft: '12.5%' }}>
+                <div style={{ width: '100%', alignContent: 'center' }}>
                 {
                     this.props.teamList.list &&
                     <Suspense fallback={<ImageListPlaceholder />}>

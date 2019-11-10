@@ -11,7 +11,7 @@ const ImageCard = (props) => {
     var role = props.role;
 
     return (
-        <div className="ui card" style={{cursor: 'pointer'}}>
+        <div className="ui card">
             <div className="ui image" style={{ display: 'flex', justifyContent: 'center' }}>
                 <Suspense fallback={<ImagePlaceholder />}>
                     <LazyLoadImageWrapper 
