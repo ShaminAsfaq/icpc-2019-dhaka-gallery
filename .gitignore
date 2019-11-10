@@ -24,7 +24,7 @@ yarn-error.log*
 
 
 # Photos
-/public/pic-generic
+#/public/pic-generic
 .idea
 build
 

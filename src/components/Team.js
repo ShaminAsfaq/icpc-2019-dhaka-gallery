@@ -5,7 +5,6 @@ const ImageCard = lazy(() => import('./ImageCard'))
 const Team = (props) => {
 
     var path = process.env.PUBLIC_URL + 'pic-generic';
-    // path = '/pic-generic'
 
     var coach = props.team.coach_name;
     var c1 = props.team.c1_name;
