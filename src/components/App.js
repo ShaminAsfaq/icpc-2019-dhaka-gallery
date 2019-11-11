@@ -26,6 +26,9 @@ class App extends React.Component {
                     </Suspense>
                 }
                 </div>
+                <div className="ui text menu">
+                    <div className="item">© Southeast University, Dhaka, Bangladesh.</div>
+                </div>
             </div>
         );
     }
